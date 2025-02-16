@@ -1,0 +1,33 @@
+{
+  "name": "monkey-speak",
+  "version": "1.0.0",
+  "description": "A Chrome extension that adds text-to-speech features to MonkeyType.",
+  "main": "src/background.js",
+  "scripts": {
+    "build": "echo 'Build script not defined'",
+    "test": "echo 'Test script not defined'"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.monkeytype.com/*"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/icon.svg"],
+      "matches": ["*://*.monkeytype.com/*"]
+    }
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}
